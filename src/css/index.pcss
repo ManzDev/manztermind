@@ -1,0 +1,93 @@
+body {
+  background: #000;
+}
+
+/* Título del juego */
+.title {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  margin: 1em auto 0 auto;
+  max-width: 600px;
+  font-size: 42px;
+  color: #fff;
+}
+
+/* Contenedor general de las bolas del juego */
+.container {
+  max-width: 600px;
+  margin: 1em auto 2em auto;
+  padding: 25px;
+  border: 4px solid #222;
+  border-radius: 15px;
+  min-height: 100px;
+
+  /* Cada fila con 4 bolas */
+  & .row {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    /* Fila que contiene la solución ganadora */
+    &.win {
+      background: green;
+    }
+  }
+}
+
+/* Panel invisible que contiene el botón */
+.panel {
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 42px;
+  color: #fff;
+
+  /* Estilo de botón de comprobación */
+  & button {
+    border: 2px solid #800;
+    border-radius: 10px;
+    background: #fa0033;
+    padding: 10px 15px;
+    color: #fff;
+    outline: 0;
+    cursor: pointer;
+  }
+}
+
+/* Bolas específicas */
+.ball {
+  --sombra: 10px 10px 10px rgba(0, 0, 0, 0.5) inset;
+
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 50%;
+  
+  background: #666;
+  border: 6px solid #555;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), var(--sombra);
+
+  /* Al mover cursor encima de la bola */
+  &:hover {
+    cursor: pointer;
+    background: #444;
+    transform: translateY(-2px);
+  }
+
+  /* Estado de la comprobación */
+  &.ok { border-color: green; }
+  &.fail { border-color: red; }
+
+  /* Colores de las bolas */
+  &.red { background: red; }
+  &.yellow { background: yellow; }
+  &.blue { background: blue; }
+  &.green { background: green; }
+  &.magenta { background: magenta; }
+  &.pink { background: pink; }
+
+  /* Sombra externa verde cuando hay un color pero no está en posición correcta */
+  &.shine {
+    box-shadow: 0 0 10px 4px green, var(--sombra);
+  }
+}
