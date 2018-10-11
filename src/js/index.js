@@ -1,4 +1,5 @@
 import isEqual from 'lodash-es/isEqual';
+import swal from 'sweetalert2';
 
 // Constantes
 const holes = 4;
@@ -69,8 +70,8 @@ let checkTurn = () => {
     newTurn();
   }
   else {
-    document.querySelector('.row:last-child').classList.add('win');
-    document.querySelector('.panel').innerHTML = 'WIN';
+
+  	finishGame();
     check.remove();    
   }
 };
@@ -91,6 +92,21 @@ let compareNumberColors = () => {
       shine[i] = 1;
   }
 };
+
+let finishGame = () => {
+
+    let sweetAlert = swal({
+        title: 'WIN!',
+        text: 'Do you want to play again?',
+        type: 'success',
+        confirmButtonText: 'Yeah'
+      }).then((result) => {
+        if (result.value) {
+            // refresh page!
+            location.reload();
+        }
+      })
+}
 
 newGame();
 newTurn();

@@ -33,6 +33,7 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
-    "lodash-es": "^4.17.11"
+    "lodash-es": "^4.17.11",
+    "sweetalert2": "^7.28.4"
   }
 }
